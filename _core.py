@@ -2,6 +2,7 @@
 """_core.py — botbor core (will be encoded)"""
 import requests, re, json, random, string, uuid, urllib.parse, time, sys, os, sqlite3
 from datetime import datetime, timezone
+from machine_fingerprint import get_machine_fingerprint
 
 BASE = "https://tokenharbor.ai"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131.0.0.0 Safari/537.36"
@@ -23,6 +24,7 @@ if not PROXY:
                 if line.strip().startswith("BOTBOR_PROXY="):
                     PROXY = line.strip().split("=", 1)[1].strip().strip('"').strip("'")
 P = {"http": PROXY, "https": PROXY} if PROXY else {}
+MACHINE_FINGERPRINT = get_machine_fingerprint()
 
 def rand_pwd():
     return ''.join(random.choices(string.ascii_letters + string.digits, k=12)) + '!Aa1'
@@ -246,6 +248,7 @@ def menu():
     print(f"""
   botbor - TokenHarbor Auto-Register
   Model: {TEST_MODEL}
+  Machine fingerprint: {MACHINE_FINGERPRINT}
 
   [1] Buat 1 akun (+ test + inject)
   [2] Buat batch (N akun)
@@ -254,7 +257,11 @@ def menu():
   [5] Test 1 key (input)
   [6] Inject semua ke 9router
   [7] Lihat 9router entries
+  [8] Lihat machine fingerprint
   [0] Exit""")
+
+def cmd_fingerprint():
+    print(f"\n  Machine fingerprint: {MACHINE_FINGERPRINT}")
 
 def main():
     args = sys.argv[1:]
@@ -274,6 +281,7 @@ def main():
             elif choice == "5": cmd_test_one()
             elif choice == "6": cmd_inject_all()
             elif choice == "7": cmd_9router_list()
+            elif choice == "8": cmd_fingerprint()
             elif choice == "0": print("  Bye!"); break
     elif args[0] == "1": cmd_create_one("--no-inject" not in args)
     elif args[0] == "batch":
@@ -285,6 +293,7 @@ def main():
     elif args[0] == "list": cmd_list()
     elif args[0] == "inject": cmd_inject_all()
     elif args[0] == "9router": cmd_9router_list()
-    else: print(f"Usage: {sys.argv[0]} [1|batch N [--inject]|test|list|inject|9router]")
+    elif args[0] == "fingerprint": cmd_fingerprint()
+    else: print(f"Usage: {sys.argv[0]} [1|batch N [--inject]|test|list|inject|9router|fingerprint]")
 
 if __name__ == "__main__": main()

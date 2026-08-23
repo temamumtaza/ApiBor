@@ -35,7 +35,12 @@ python3 bot.py test               # Test all API keys
 python3 bot.py list               # List accounts & keys
 python3 bot.py inject             # Inject all to 9router
 python3 bot.py 9router            # Show 9router entries
+python3 bot.py fingerprint       # Show the automatic local machine fingerprint
 ```
+
+The machine fingerprint is generated automatically from the local platform
+identity and exposed only as a hashed local identifier. It is not used to
+bypass remote human checks or other service protections.
 
 ## Proxy (Optional)
 ```bash
