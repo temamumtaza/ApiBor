@@ -2,6 +2,8 @@
 
 Automated TokenHarbor account registration, free model activation, and 9router injection.
 
+Repository: [temamumtaza/ApiBor](https://github.com/temamumtaza/ApiBor)
+
 ## Features
 - Auto-register via temp email
 - Free model consent (`mimo-v2.5:free`)
@@ -17,6 +19,10 @@ pip install -r requirements.txt
 ```
 No machine activation or runtime license key is required. After installing the
 dependencies, run the bot directly with `python3 bot.py`.
+
+The main files are [`bot.py`](https://github.com/temamumtaza/ApiBor/blob/main/bot.py),
+[`_core.py`](https://github.com/temamumtaza/ApiBor/blob/main/_core.py), and
+[`requirements.txt`](https://github.com/temamumtaza/ApiBor/blob/main/requirements.txt).
 
 ## Usage
 ```bash
