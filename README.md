@@ -11,19 +11,12 @@ Automated TokenHarbor account registration, free model activation, and 9router i
 
 ## Setup
 ```bash
-git clone https://github.com/dvaaagl/ApiBor.git
+git clone https://github.com/temamumtaza/ApiBor.git
 cd ApiBor
 pip install -r requirements.txt
 ```
-a
-## License Required
-This bot is license-protected. On first run, you'll see your **Machine ID**.
-
-**To get a license key:**
-1. Run the bot: `python3 bot.py`
-2. Copy your **Machine ID** shown on screen
-3. Send it to **[@omopagll](https://t.me/omopagll)** on Telegram
-4. Paste the license key when prompted
+No machine activation or runtime license key is required. After installing the
+dependencies, run the bot directly with `python3 bot.py`.
 
 ## Usage
 ```bash
@@ -44,5 +37,5 @@ export BOTBOR_PROXY="http://user:pass@proxy:port"
 # or add to .env file
 ```
 
-## License
-Proprietary. Contact [@omopagll](https://t.me/omopagll) for license.
+## Runtime licensing
+The bot does not require a license key at runtime.
